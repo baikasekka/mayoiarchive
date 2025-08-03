@@ -9,30 +9,58 @@
 <body>
   <header>
     <h1>Mayoi Ayase Archive</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="stories.html">Stories</a>
-      <a href="voicelines.html">Voicelines</a>
-      <a href="cards.html">Cards</a>
-      <a href="info.html">Information</a>
+    <nav class="navbar">
+      <span class="menu-toggle" onclick="toggleMenu()">☰ Menu</span>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="stories.html">Stories</a></li>
+        <li><a href="voicelines.html">Voicelines</a></li>
+        <li><a href="cards.html">Cards</a></li>
+        <li><a href="info.html">Information</a></li>
+      </ul>
     </nav>
   </header>
 
   <main>
     <section style="text-align: center; margin-bottom: 30px;">
       <p>
-        Welcome. This is a fan archive documenting everything about <strong>Mayoi Ayase</strong>, an idol from Ensemble Stars!!
+        Welcome to mayoiarchive! This is a personal archive dedicated to Mayoi Ayase of Ensemble Stars!! This little corner of the internet gathers all kinds of content of him, for fellow fans to enjoy!
       </p>
       <img
         src="https://media.discordapp.net/attachments/1277801181087006792/1401417741684183171/image.png?ex=6890337a&is=688ee1fa&hm=bade54499b0a3be435267359baade0fbd15cbc3054bb38ab6ccdf86966dcabc0&=&format=webp&quality=lossless&width=1703&height=563"
         alt="Mayoi Ayase Banner"
         style="max-width: 100%; height: auto; margin-top: 20px;"
       />
+
+      <div style="margin-top: 40px; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
+        <h1>About This Site</h1>
+        <p>
+          This project is something I’ve had in mind for a long while. I wanted to gather everything about Mayoi into one space,
+          both as a reference and a way to express my own love for his character. That said, I have come to realize that another
+          Mayoi directory already exists, so please check out their site <a href="https://mayoidirectory.neocities.org/" target="_blank" rel="noopener noreferrer">here</a>. 
+          They made theirs first, and it's beautifully done. I want to respect and credit their work, even if I do not know them.
+        </p>
+
+        <h1>Credits</h1>
+        <p>
+          All visuals such as banners, icons, and in-game assets are taken from gradualcolors.<br><br>
+          Many story summaries and official details were sourced from the Ensemble Stars!! Wiki.<br><br>
+          This site is completely non-profit and purely a fan creation.
+        </p>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>Fanmade. Not affiliated with Ensemble Stars!! or Happy Elements.</p>
+    <p>*This site is unofficial, non-profit, and intended purely as a fan resource. 
+    Please enjoy your stay~!</p>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navLinks');
+      nav.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>

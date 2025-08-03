@@ -16,6 +16,7 @@
     h1 {
       text-align: center;
       margin-bottom: 40px;
+      color: #e0c9f1;
     }
 
     .story-grid {
@@ -62,6 +63,7 @@
     .story-info h2 {
       margin: 0 0 10px 0;
       font-size: 1.3em;
+      color: #d8c9f2;
     }
 
     .story-info p {
@@ -77,35 +79,71 @@
       background-color: black;
       border-radius: 0;
     }
+
+    /* MOBILE ONLY: stack story cards vertically */
+    @media (max-width: 600px) {
+      .story-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 100%;
+        margin: 0 10px;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Mayoi Ayase Stories</h1>
+  <header>
+    <h1>Mayoi Ayase Stories</h1>
+    <nav class="navbar">
+      <span class="menu-toggle" onclick="toggleMenu()">☰ Menu</span>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="stories.html">Stories</a></li>
+        <li><a href="voicelines.html">Voicelines</a></li>
+        <li><a href="cards.html">Cards</a></li>
+        <li><a href="info.html">Information</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <div class="story-grid">
-    <a href="#" class="story-card">
-      <img
-        class="story-banner"
-        src="https://media.discordapp.net/attachments/1277801181087006792/1277801684491436123/Dead_End_Land_Banner.png?ex=68900c8d&is=688ebb0d&hm=9424dca2a5fad02693c06a5ad0fd17a6c335183043b0e6c0202fc78697b413d3&=&format=webp&quality=lossless&width=768&height=350"
-        alt="Dead End Land Banner"
-      />
-      <div class="story-info">
-        <h2>Dead End Land</h2>
-        <p>Scout | 9 Episodes</p>
-        <p>Written by Kino Seitaro (木野誠太郎)</p>
-        <p>Released July 30th, 2020</p>
-      </div>
-    </a>
+  <main>
+    <div class="story-grid">
+      <a href="#" class="story-card">
+        <img
+          class="story-banner"
+          src="https://media.discordapp.net/attachments/1277801181087006792/1277801684491436123/Dead_End_Land_Banner.png?ex=68900c8d&is=688ebb0d&hm=9424dca2a5fad02693c06a5ad0fd17a6c335183043b0e6c0202fc78697b413d3&=&format=webp&quality=lossless&width=768&height=350"
+          alt="Dead End Land Banner"
+        />
+        <div class="story-info">
+          <h2>Dead End Land</h2>
+          <p>Scout | 9 Episodes</p>
+          <p>Written by Kino Seitaro (木野誠太郎)</p>
+          <p>Released July 30th, 2020</p>
+        </div>
+      </a>
 
-    <a href="#" class="story-card">
-      <div class="placeholder-banner"></div>
-      <div class="story-info">
-        <h2>Placeholder Story</h2>
-        <p>Type | X Episodes</p>
-        <p>Written by Author Name</p>
-        <p>Release Date</p>
-      </div>
-    </a>
-  </div>
+      <a href="#" class="story-card">
+        <div class="placeholder-banner"></div>
+        <div class="story-info">
+          <h2>Placeholder Story</h2>
+          <p>Type | X Episodes</p>
+          <p>Written by Author Name</p>
+          <p>Release Date</p>
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <p style="text-align:center; color:#6f5a8c; margin: 40px 0 20px 0;">*This site is unofficial, non-profit, and intended purely as a fan resource. Please enjoy your stay~!</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navLinks');
+      nav.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>

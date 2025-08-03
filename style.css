@@ -1,10 +1,11 @@
-/* Reset some defaults */
+/* Reset defaults */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Body styling */
 body {
   background-color: #1b151f;
   color: #ddd;
@@ -16,6 +17,7 @@ body {
   flex-direction: column;
 }
 
+/* Header */
 header {
   text-align: center;
   padding: 1.5rem 0;
@@ -30,30 +32,76 @@ header h1 {
   letter-spacing: 2px;
 }
 
-nav {
-  margin-top: 0.5rem;
+/* Navigation */
+.navbar {
+  position: relative;
+  background-color: #1b151f;
+  padding: 10px;
+  text-align: center;
 }
 
-nav a {
-  color: #bca6dc;
+.menu-toggle {
+  font-size: 24px;
+  cursor: pointer;
+  color: #e0c9f1;
+  display: none;
+  margin-bottom: 10px;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav-links li a {
   text-decoration: none;
-  margin: 0 1rem;
+  color: #bca6dc;
   font-weight: 600;
   font-size: 1rem;
   transition: color 0.3s ease;
 }
 
-nav a:hover {
+.nav-links li a:hover {
   color: #e0c9f1;
-  text-decoration: underline;
 }
 
+/* Responsive menu */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #251c2e;
+    border-top: 1px solid #3a2d4a;
+    padding: 10px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+/* Main content */
 main {
   max-width: 700px;
   margin: 2rem auto;
   flex-grow: 1;
 }
 
+/* Text elements */
 p, ul {
   font-size: 1.1rem;
   color: #ccc;
@@ -78,6 +126,7 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Footer */
 footer {
   text-align: center;
   font-size: 0.85rem;
