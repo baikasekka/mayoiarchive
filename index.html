@@ -4,24 +4,194 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mayoi Ayase Archive</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- Clover favicon -->
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/128/17/17235.png" type="image/svg+xml" />
+
+  <style>
+    /* Reset defaults */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styling */
+    body {
+      background-color: #1b151f;
+      color: #ddd;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navbar container */
+    .navbar {
+      position: relative;
+      background-color: #1b151f;
+      padding: 10px;
+      text-align: left;
+      max-width: 700px;
+      margin: 0 auto 20px auto;
+      border-bottom: 1px solid #3a2d4a;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Menu toggle button */
+    .menu-toggle {
+      font-size: 24px;
+      cursor: pointer;
+      color: #e0c9f1;
+      display: none; /* hidden by default, only show on small screens */
+      user-select: none;
+    }
+
+    /* Navigation links */
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 0 20px;
+      display: flex;
+      gap: 15px;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      flex-grow: 1;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #bca6dc;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+      color: #e0c9f1;
+    }
+
+    /* Header styling */
+    header {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      border-bottom: 1px solid #3a2d4a;
+      padding-bottom: 1.5rem;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: #e0c9f1;
+      margin-bottom: 0.2rem;
+      letter-spacing: 2px;
+    }
+
+    /* Main content */
+    main {
+      max-width: 700px;
+      margin: 2rem auto;
+      flex-grow: 1;
+    }
+
+    /* Text elements */
+    p, ul {
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-top: 1rem;
+    }
+
+    li {
+      margin: 0.5rem 0;
+    }
+
+    a {
+      color: #bca6dc;
+    }
+
+    a:hover {
+      color: #e0c9f1;
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6f5a8c;
+      margin: 2rem 0 1rem 0;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Responsive menu for mobile */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: -260px; /* hide off-screen by default */
+        width: 250px;
+        height: 100vh;
+        background-color: #251c2e;
+        padding-top: 60px;
+        padding-left: 20px;
+        gap: 20px;
+        transition: left 0.3s ease;
+        z-index: 9999;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.8);
+      }
+
+      .nav-links.active {
+        left: 0; /* slide in from left */
+      }
+
+      /* Push main content right when menu is open */
+      main.menu-open {
+        margin-left: 250px;
+        transition: margin-left 0.3s ease;
+      }
+
+      header {
+        max-width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
+
+  <nav class="navbar">
+    <span class="menu-toggle" onclick="toggleMenu()">☰ Menu</span>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="stories.html">Stories</a></li>
+      <li><a href="voicelines.html">Voicelines</a></li>
+      <li><a href="cards.html">Cards</a></li>
+      <li><a href="info.html">Information</a></li>
+    </ul>
+  </nav>
+
   <header>
     <h1>Mayoi Ayase Archive</h1>
-    <nav class="navbar">
-      <span class="menu-toggle" onclick="toggleMenu()">☰ Menu</span>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="stories.html">Stories</a></li>
-        <li><a href="voicelines.html">Voicelines</a></li>
-        <li><a href="cards.html">Cards</a></li>
-        <li><a href="info.html">Information</a></li>
-      </ul>
-    </nav>
   </header>
 
-  <main>
+  <main id="mainContent">
     <section style="text-align: center; margin-bottom: 30px;">
       <p>
         Welcome to mayoiarchive! This is a personal archive dedicated to Mayoi Ayase of Ensemble Stars!! This little corner of the internet gathers all kinds of content of him, for fellow fans to enjoy!
@@ -59,7 +229,9 @@
   <script>
     function toggleMenu() {
       const nav = document.getElementById('navLinks');
+      const mainContent = document.getElementById('mainContent');
       nav.classList.toggle('active');
+      mainContent.classList.toggle('menu-open');
     }
   </script>
 </body>
