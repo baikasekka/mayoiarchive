@@ -87,13 +87,22 @@
       padding: 0 20px;
     }
 
+    /* Desktop: 3-column grid */
     .story-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(3, 1fr); /* Changed here */
       gap: 30px;
       margin-top: 40px;
+
+      /* Hide scrollbar */
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE 10+ */
+    }
+    .story-grid::-webkit-scrollbar {
+      display: none; /* Chrome, Safari */
     }
 
+    /* Story cards */
     .story-card {
       background-color: #2a1f30;
       border-radius: 8px;
@@ -185,6 +194,21 @@
         margin-left: 250px;
         transition: margin-left 0.3s ease;
       }
+
+      /* Horizontal scroll for story grid on mobile */
+      .story-grid {
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 20px;
+        padding-bottom: 10px;
+        grid-template-columns: unset;
+      }
+
+      .story-card {
+        flex: 0 0 250px;
+        min-width: 250px;
+      }
     }
   </style>
 </head>
@@ -206,6 +230,50 @@
 
   <main id="mainContent">
     <div class="story-grid">
+      <!-- Added Stories FIRST -->
+      <a href="#" class="story-card">
+        <img
+          class="story-banner"
+          src="https://static.wikia.nocookie.net/ensemble-stars/images/5/54/Vagabond_Banner.png/revision/latest?cb=20240914205432"
+          alt="Vagabond Banner"
+        />
+        <div class="story-info">
+          <h2>Vagabond</h2>
+          <p>Scout | 8 Episodes</p>
+          <p>Written by Nishioka Maiko (西岡麻衣子)</p>
+          <p>Released May 14th, 2020</p>
+        </div>
+      </a>
+
+      <a href="#" class="story-card">
+        <img
+          class="story-banner"
+          src="https://static.wikia.nocookie.net/ensemble-stars/images/6/6c/INTERSECTING%EF%BC%8FMOTOR_SHOW_Banner.png/revision/latest?cb=20240914023320"
+          alt="Motor Show Banner"
+        />
+        <div class="story-info">
+          <h2>Motor Show</h2>
+          <p>Event | 15 Episodes</p>
+          <p>Written by Akira (日日日)</p>
+          <p>Released Apr 30th, 2020</p>
+        </div>
+      </a>
+
+      <a href="#" class="story-card">
+        <img
+          class="story-banner"
+          src="https://static.wikia.nocookie.net/ensemble-stars/images/6/66/King_of_Thieves_Banner.png/revision/latest?cb=20240914023533"
+          alt="King of Thieves Banner"
+        />
+        <div class="story-info">
+          <h2>King of Thieves</h2>
+          <p>Scout | 9 Episodes</p>
+          <p>Written by Kino Seitaro (木野誠太郎)</p>
+          <p>Released Jun 14th, 2020</p>
+        </div>
+      </a>
+
+      <!-- Original Dead End Land -->
       <a href="#" class="story-card">
         <img
           class="story-banner"
@@ -220,13 +288,18 @@
         </div>
       </a>
 
+      <!-- Replaced Placeholder with Feather Touch -->
       <a href="#" class="story-card">
-        <div class="placeholder-banner"></div>
+        <img
+          class="story-banner"
+          src="https://images-ext-1.discordapp.net/external/wsoa1D9zB8i08S5bTSyTfUo3Oi49s6LNzyH0Mj_NPYo/%3Fcb%3D20240914015129/https/static.wikia.nocookie.net/ensemble-stars/images/7/7e/Aspiring%25E2%2599%25A6Touch_of_Feather_from_Tiny_Wings_Banner.png/revision/latest?format=webp&width=855&height=384"
+          alt="Feather Touch Banner"
+        />
         <div class="story-info">
-          <h2>Placeholder Story</h2>
-          <p>Type | X Episodes</p>
-          <p>Written by Author Name</p>
-          <p>Release Date</p>
+          <h2>Feather Touch</h2>
+          <p>Scout | 13 Chapters</p>
+          <p>Written by Akira (日日日)</p>
+          <p>Released Oct 15th, 2020</p>
         </div>
       </a>
     </div>
