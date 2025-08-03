@@ -1,0 +1,86 @@
+/* Reset some defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1b151f;
+  color: #ddd;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  text-align: center;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #3a2d4a;
+}
+
+header h1 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #e0c9f1;
+  margin-bottom: 0.2rem;
+  letter-spacing: 2px;
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  color: #bca6dc;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #e0c9f1;
+  text-decoration: underline;
+}
+
+main {
+  max-width: 700px;
+  margin: 2rem auto;
+  flex-grow: 1;
+}
+
+p, ul {
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+li {
+  margin: 0.5rem 0;
+}
+
+a {
+  color: #bca6dc;
+}
+
+a:hover {
+  color: #e0c9f1;
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #6f5a8c;
+  margin: 2rem 0 1rem 0;
+}

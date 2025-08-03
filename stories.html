@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mayoi Ayase Stories</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background-color: #1b151f;
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .story-card {
+      background-color: #2a1f30;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      text-decoration: none;
+      color: white;
+      transition: transform 0.2s;
+    }
+
+    .story-card:hover {
+      transform: scale(1.03);
+    }
+
+    .story-banner {
+      width: 100%;
+      aspect-ratio: 768 / 350;
+      object-fit: cover;
+      background-color: black;
+    }
+
+    .story-info {
+      padding: 15px 20px;
+      background-color: #3b2e4d;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .story-info h2 {
+      margin: 0 0 10px 0;
+      font-size: 1.3em;
+    }
+
+    .story-info p {
+      margin: 4px 0;
+      font-size: 0.95em;
+      color: #d8c9f2;
+    }
+
+    /* Placeholder black box for the 2nd card's banner */
+    .placeholder-banner {
+      width: 100%;
+      aspect-ratio: 3 / 1.37; /* approx same ratio as first banner */
+      background-color: black;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mayoi Ayase Stories</h1>
+
+  <div class="story-grid">
+    <a href="#" class="story-card">
+      <img
+        class="story-banner"
+        src="https://media.discordapp.net/attachments/1277801181087006792/1277801684491436123/Dead_End_Land_Banner.png?ex=68900c8d&is=688ebb0d&hm=9424dca2a5fad02693c06a5ad0fd17a6c335183043b0e6c0202fc78697b413d3&=&format=webp&quality=lossless&width=768&height=350"
+        alt="Dead End Land Banner"
+      />
+      <div class="story-info">
+        <h2>Dead End Land</h2>
+        <p>Scout | 9 Episodes</p>
+        <p>Written by Kino Seitaro (木野誠太郎)</p>
+        <p>Released July 30th, 2020</p>
+      </div>
+    </a>
+
+    <a href="#" class="story-card">
+      <div class="placeholder-banner"></div>
+      <div class="story-info">
+        <h2>Placeholder Story</h2>
+        <p>Type | X Episodes</p>
+        <p>Written by Author Name</p>
+        <p>Release Date</p>
+      </div>
+    </a>
+  </div>
+</body>
+</html>
